@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'main/base.html' %}
+{% block body %}
 <p>Hello world</p>
-</body>
-</html>
+
+<a href="{% url 'cv' %}">CV</a>
+<br><a href="{% url 'cvdisp' %}">CVdisp</a>
+<br><a href="{% url 'cvadd' %}">CVadd</a>
+{% endblock %}

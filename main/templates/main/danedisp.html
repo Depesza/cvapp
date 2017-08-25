@@ -1,0 +1,8 @@
+{% extends 'main/base.html' %}
+{% block body %}
+{% if zwrot %}
+    <p>{{zwrot.id}}<br>{{zwrot.name}}</p>
+{% else %}
+    <p>Brak osoby o danym ID.</p>
+{% endif %}
+{% endblock %}

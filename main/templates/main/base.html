@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CVapp</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container fluid">
+            <a class="navbar-header">
+                <a class="navbar-brand" href="{% url 'home' %}">CVapp</a>
+            </div>
+        </div>
+    </nav>
+{% block body %}
+{% endblock %}
+</body>
+</html>
