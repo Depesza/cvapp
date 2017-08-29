@@ -1,0 +1,7 @@
+{% extends 'main/base.html' %}
+{% block body %}
+<form action="" method="post">{% csrf_token %}
+    <p>Czy jesteś pewien, że chcesz usunąć "{{ object.name }} {{ object.lastname }}"?</p>
+    <input type="submit" value="Potwierdź" />
+</form>
+{% endblock %}

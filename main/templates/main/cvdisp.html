@@ -4,7 +4,9 @@
 {% for osoba in object_list %}
 <tr></tr>
     <td><p>{{osoba.id}} {{osoba.name}} {{osoba.lastname}} </p></td>
-    <td><a href="{% url 'cvpers' osoba.id %}">Link do CV.</a></td>
+    <td style="padding-left:10px"><a href="{% url 'cvpers' osoba.id %}">Link do CV</a></td>
+    <td style="padding-left:10px"><a href="{% url 'cvdelete' osoba.id %}">Usuń rekord</a></td>
+    <td style="padding-left:10px"><a href="{% url 'cvedit' osoba.id %}">Edytuj rekord</a></td>
 </tr>
 {% endfor %}
 

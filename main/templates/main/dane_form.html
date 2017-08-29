@@ -1,0 +1,9 @@
+{% extends 'main/base.html' %}
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    <!--{{form}}-->
+    {% include 'main/form-template.html' %}
+    <input type="submit">
+</form>
+{% endblock %}
