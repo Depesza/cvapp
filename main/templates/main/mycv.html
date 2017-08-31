@@ -38,14 +38,14 @@
   </style>
 </head>
 <body>
-<a href="{% url 'cvdisp' %}"><-- BACK</a>
+<a href="{% url 'home' %}"><-- BACK</a>
   <div class="container-fluid box">
     <div class="row">
     <div class="col-md-7">
       <div class="container-fluid">
         <div style="padding-left:20px;padding-top:20px">
-        <h1 style="color:#008ae6;">{{dane.name}} {{dane.lastname}}</h1>
-        <h4 style="margin-bottom:10px;">{{dane.email}}</h4>
+        <h1 style="color:#008ae6;">{{request.user.username}} {{dane.lastname}}</h1>
+        <h4 style="margin-bottom:10px;">{{request.user.email}}</h4>
         <div style="padding-left: 30px;">
           <table>
             <tr class="inter"><td><i class="glyphicon glyphicon-earphone fa-x"></td>

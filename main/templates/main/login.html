@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'main/base.html' %}
+{% block body %}
+<form method="post">
+    {% csrf_token %}
+    <!--{{form}}-->
+    {% include 'main/form-template.html' %}
+    <input type="submit">
+</form>
+{% endblock %}
