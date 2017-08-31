@@ -17,10 +17,6 @@ def cv(request):
     return render(request, 'main/cv.html')
 
 
-def myCv(request):
-    return render(request, 'main/mycv.html')
-
-
 class CvDisp(generic.ListView):
     template_name = 'main/cvdisp.html'
     # domyślnie:
@@ -28,6 +24,11 @@ class CvDisp(generic.ListView):
 
     def get_queryset(self):
         return Dane.objects.all()
+
+
+def CvDispDef(request):
+    obiekty = Dane.objects.filter(owner=request.user)
+    return render(request, 'main/cvdispdef.html', {'obiekty': obiekty})
 
 
 class DaneDisp(generic.DetailView):
@@ -46,21 +47,13 @@ class CvCreate(CreateView):
 
 class CvEdit(UpdateView):
     model = Dane
-    fields = ['name', 'lastname', 'email', 'street']
+    fields = ['name', 'lastname', 'email', 'street', 'owner']
 
 
 class CvDelete(DeleteView):
     model = Dane
     # jeżeli sukces -> przekierowanie
     success_url = reverse_lazy('cvdisp')
-
-
-def editView(request):
-
-    return render(request, 'main/edit.html')
-
-
-
 
 
 class UserFormView(View):
