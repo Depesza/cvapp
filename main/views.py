@@ -21,29 +21,38 @@ def myCv(request):
     return render(request, 'main/mycv.html')
 
 
-# class CvDisp(generic.ListView):
-#     template_name = 'main/cvdisp.html'
-#     # domyślnie:
-#     # context_object_name = 'object_list'
-#
-#     def get_queryset(self):
-#         return Dane.objects.all()
-#
-#
-# class CvCreate(CreateView):
-#     model = Dane
-#     fields = ['name', 'lastname', 'email', 'street']
-#
-#
-# class CvEdit(UpdateView):
-#     model = Dane
-#     fields = ['name', 'lastname', 'email']
-#
-#
-# class CvDelete(DeleteView):
-#     model = Dane
-#     # jeżeli sukces -> przekierowanie
-#     success_url = reverse_lazy('cvdisp')
+class CvDisp(generic.ListView):
+    template_name = 'main/cvdisp.html'
+    # domyślnie:
+    # context_object_name = 'object_list'
+
+    def get_queryset(self):
+        return Dane.objects.all()
+
+
+class DaneDisp(generic.DetailView):
+    model = Dane
+    template_name = 'main/cvtemp.html'
+
+
+class CvCreate(CreateView):
+    model = Dane
+    fields = ['name', 'lastname', 'email', 'street', 'owner']
+
+    # def form_valid(self, form):
+    #     form.instance.created_by = self.request.user
+    #     return super(CvCreate, self).form_valid(form)
+
+
+class CvEdit(UpdateView):
+    model = Dane
+    fields = ['name', 'lastname', 'email', 'street']
+
+
+class CvDelete(DeleteView):
+    model = Dane
+    # jeżeli sukces -> przekierowanie
+    success_url = reverse_lazy('cvdisp')
 
 
 def editView(request):
