@@ -5,7 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
-from main.models import Dane
+from main.models import Dane, DaneForm
 from .forms import UserForm, LoginForm
 
 
@@ -38,7 +38,22 @@ class DaneDisp(generic.DetailView):
 
 class CvCreate(CreateView):
     model = Dane
-    fields = ['name', 'lastname', 'email', 'street', 'owner']
+    form_class = DaneForm
+
+    def post(self, request, *args, **kwargs):
+        self.object = None
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+
+        form.instance.owner = request.user
+
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    # fields = ['name', 'lastname', 'email', 'street', 'owner']
+
 
     # def form_valid(self, form):
     #     form.instance.created_by = self.request.user
