@@ -3,7 +3,7 @@
 <table>
 {% for obiekt in obiekty %}
 <tr></tr>
-    <td><p>{{obiekt.id}} {{obiekt.name}} {{obiekt.lastname}} </p></td>
+    <td><p>{{obiekt.name}} {{obiekt.lastname}} </p></td>
     <td style="padding-left:10px"><a href="{% url 'cvpers' obiekt.id %}">Link do CV</a></td>
     <td style="padding-left:10px"><a href="{% url 'cvdelete' obiekt.id %}">Usuń rekord</a></td>
     <td style="padding-left:10px"><a href="{% url 'cvedit' obiekt.id %}">Edytuj rekord</a></td>

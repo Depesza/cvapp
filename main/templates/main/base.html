@@ -12,20 +12,26 @@
         <div class="container fluid">
             <a class="navbar-header">
                 <a class="navbar-brand" href="{% url 'home' %}">CVapp</a>
-                <a class="navbar-text navbar-right" href="{% url 'login' %}">Login</a>
-                <a class="navbar-text navbar-right" href="{% url 'logout' %}">Logout</a>
-                <div class="navbar-text navbar-right">
-                    {% if request.user.username %}
+                {% if request.user.username %}
+                    <a class="navbar-text navbar-right" href="{% url 'logout' %}">Wyloguj</a>
+                    <div class="navbar-text navbar-right" style="margin-left:20px;">
                         Zalogowany jako: {{request.user.username}}
-                    {% else %}
-                        Zaloguj się
-                    {% endif %}
-                </div>
+                    </div>
+                {% else %}
+                    <a class="navbar-text navbar-right" href="{% url 'login' %}">Zaloguj</a>
+                    <div class="navbar-text navbar-right" style="margin-left:20px;">
+                        Niezalogowany
+                    </div>
+                {% endif %}
             </a>
 
         </div>
     </nav>
+<div class = container>
+    <div class = jumbotron>
 {% block body %}
 {% endblock %}
+    </div>
+</div>
 </body>
 </html>

@@ -62,7 +62,7 @@ class CvCreate(CreateView):
 
 class CvEdit(UpdateView):
     model = Dane
-    fields = ['name', 'lastname', 'email', 'street', 'owner']
+    fields = ['name', 'lastname', 'email', 'street']
 
 
 class CvDelete(DeleteView):
