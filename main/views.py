@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
-from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.views.generic import View
 from main.models import Dane, DaneForm
 from .forms import UserForm, LoginForm
@@ -17,25 +18,25 @@ def cv(request):
     return render(request, 'main/cv.html')
 
 
-class CvDisp(generic.ListView):
-    template_name = 'main/cvdisp.html'
-    # domyślnie:
-    # context_object_name = 'object_list'
-
-    def get_queryset(self):
-        return Dane.objects.all()
-
-
+@login_required()
 def CvDispDef(request):
     obiekty = Dane.objects.filter(owner=request.user)
     return render(request, 'main/cvdispdef.html', {'obiekty': obiekty})
 
 
-class DaneDisp(generic.DetailView):
-    model = Dane
-    template_name = 'main/cvtemp.html'
+@login_required()
+def OneCvDisp(request, cv_id):
+    dane = Dane.objects.get(id=cv_id)
+    if str(dane.owner) == str(request.user.username):
+        return render(request, 'main/cvtemp.html', {'dane': dane})
+    else:
+        return HttpResponseRedirect('unacc')
+
+def unacc(request):
+    return render(request, 'main/unacc.html')
 
 
+@method_decorator(login_required, name='post')
 class CvCreate(CreateView):
     model = Dane
     form_class = DaneForm
@@ -51,13 +52,6 @@ class CvCreate(CreateView):
             return self.form_valid(form)
         else:
             return self.form_invalid(form)
-
-    # fields = ['name', 'lastname', 'email', 'street', 'owner']
-
-
-    # def form_valid(self, form):
-    #     form.instance.created_by = self.request.user
-    #     return super(CvCreate, self).form_valid(form)
 
 
 class CvEdit(UpdateView):
