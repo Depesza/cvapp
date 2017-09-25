@@ -3,7 +3,9 @@ from django.contrib.auth.models import User
 
 
 class UserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(label='Login:')
+    email = forms.CharField(label='E-mail:')
+    password = forms.CharField(label='Hasło:', widget=forms.PasswordInput)
 
     class Meta:
         model = User
@@ -11,8 +13,8 @@ class UserForm(forms.ModelForm):
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(label='Login:')
+    password = forms.CharField(label='Hasło:', widget=forms.PasswordInput)
 
     class Meta:
         model = User
