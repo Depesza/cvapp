@@ -1,8 +1,15 @@
 {% extends 'main/base.html' %}
 {% block body %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
 <ul>
 <li><a href="{% url 'cvcreate' %}">Dodaj CV</a></li>
 <li><a href="{% url 'cvdispdef' %}">Przeglądaj listę swoich CV</a></li>
-<li><a href="{% url 'register' %}">Rejestracja</a></li>
+    {% if not request.user.username %}
+        <li><a href="{% url 'register' %}">Rejestracja</a></li>
+    {% endif %}
 </ul>
 {% endblock %}

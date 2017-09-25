@@ -4,6 +4,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.utils.decorators import method_decorator
 from django.views.generic import View
 from main.models import Dane, DaneForm
@@ -107,12 +108,18 @@ def loginView(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
+                    messages.add_message(request, messages.INFO, 'Zalogowano.')
                     return redirect('home')
     else:
         form = LoginForm()
     return render(request, 'main/login.html', {'form': form})
 
 
+def login2(request):
+    messages.add_message(request, messages.INFO, 'Aby uzyskać dostęp należy się zalogować.')
+    return redirect('login')
+
 def logoutView(request):
     logout(request)
+    messages.add_message(request, messages.INFO, 'Zostałeś wylogowany.')
     return redirect('home')
