@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.core.urlresolvers import reverse_lazy
+from django.core.urlresolvers import reverse_lazy, reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -54,6 +54,9 @@ class CvCreate(CreateView):
         else:
             return self.form_invalid(form)
 
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'pk': self.pk})
+
 
 class CvEdit(UpdateView):
     model = Dane
@@ -63,7 +66,7 @@ class CvEdit(UpdateView):
 class CvDelete(DeleteView):
     model = Dane
     # jeżeli sukces -> przekierowanie
-    success_url = reverse_lazy('cvdisp')
+    success_url = reverse_lazy('cvdispdef')
 
 
 class UserFormView(View):
