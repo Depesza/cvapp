@@ -110,6 +110,7 @@ def loginView(request):
                     login(request, user)
                     messages.add_message(request, messages.INFO, 'Zalogowano.')
                     return redirect('home')
+        messages.add_message(request, messages.INFO, 'Błędny login lub hasło.')
     else:
         form = LoginForm()
     return render(request, 'main/login.html', {'form': form})

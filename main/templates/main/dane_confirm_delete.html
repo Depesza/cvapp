@@ -2,6 +2,6 @@
 {% block body %}
 <form action="" method="post">{% csrf_token %}
     <p>Czy jesteś pewien, że chcesz usunąć "{{ object.name }} {{ object.lastname }}"?</p>
-    <input type="submit" value="Potwierdź" />
+    <input type="submit" value="Potwierdź" /><a href="{% url 'cvdispdef' %}"><button type="button">Anuluj</button></a>
 </form>
 {% endblock %}
