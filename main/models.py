@@ -7,8 +7,8 @@ from django.forms import ModelForm
 class Dane(models.Model):
     owner = models.ForeignKey(User, unique=False, default='', on_delete=models.CASCADE)
     name = models.CharField('Imię', max_length=30)
-    lastname = models.CharField('Nazwisko nazwisko też niczego sobie ogogogogo', max_length=120)
-    email = models.EmailField('E mail taki długi jak życ')
+    lastname = models.CharField('Nazwisko', max_length=120)
+    email = models.EmailField('E-mail')
     photo = models.FileField(default='')
     street = models.CharField('Ulica i numer mieszkania', max_length=50, default='')
 

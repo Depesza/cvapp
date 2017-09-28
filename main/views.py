@@ -61,6 +61,7 @@ class CvCreate(CreateView):
 class CvEdit(UpdateView):
     model = Dane
     fields = ['name', 'lastname', 'email', 'street']
+    success_url = reverse_lazy('cvdispdef')
 
 
 class CvDelete(DeleteView):

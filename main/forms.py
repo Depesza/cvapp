@@ -1,10 +1,12 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.core.validators import EmailValidator
 
 
 class UserForm(forms.ModelForm):
-    username = forms.CharField(label='Login:')
-    email = forms.CharField(label='E-mail:')
+    username = forms.CharField(label='Login:', error_messages={'unique': "Login jest już zajęty."})
+    email = forms.CharField(label='E-mail:', error_messages={'invalid': "Proszę podać poprawny adres e-mail."})
+    # , validators = [EmailValidator(message="Podano błędny adres e-mail")]
     password = forms.CharField(label='Hasło:', widget=forms.PasswordInput)
 
     class Meta:
