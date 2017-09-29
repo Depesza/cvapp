@@ -13,8 +13,9 @@ urlpatterns = [
     url(r'^cv/$', views.cv, name='cv'),
     url(r'^cvdispdef/$', views.CvDispDef, name='cvdispdef'),
     url(r'^([0-9]+)$', views.OneCvDisp, name='detail'),
-    url(r'^add/$', views.CvCreate.as_view(success_url="/cvdispdef/"), name='cvcreate'),
     url(r'^(?P<pk>[0-9]+)/edit/$', views.CvEdit.as_view(), name='cvedit'),
     url(r'^(?P<pk>[0-9]+)/delete/$', views.CvDelete.as_view(), name='cvdelete'),
     url(r'^unacc/$', views.unacc, name='unacc'),
+    url(r'^cvcreate/$', views.cvcreate, name='cvcreate'),
+
 ]

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from django.core.validators import EmailValidator
+
 
 
 class UserForm(forms.ModelForm):
@@ -21,3 +21,8 @@ class LoginForm(forms.Form):
     class Meta:
         model = User
         fields = ['username', 'password']
+
+# class DaneForm(forms.ModelForm):
+#     class Meta:
+#         model = Document
+#         fields = ('name', 'lastname', 'email', 'photo', 'street')
