@@ -21,8 +21,3 @@ class LoginForm(forms.Form):
     class Meta:
         model = User
         fields = ['username', 'password']
-
-# class DaneForm(forms.ModelForm):
-#     class Meta:
-#         model = Document
-#         fields = ('name', 'lastname', 'email', 'photo', 'street')

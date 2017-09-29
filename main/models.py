@@ -9,8 +9,8 @@ class Dane(models.Model):
     name = models.CharField('Imię', max_length=30)
     lastname = models.CharField('Nazwisko', max_length=120)
     email = models.EmailField('E-mail', error_messages={'invalid': "Proszę podać poprawny adres e-mail."})
-    photo = models.FileField('Zdjęcie', upload_to='documents/')
     street = models.CharField('Ulica i numer mieszkania', max_length=50)
+    photo = models.FileField('Zdjęcie', upload_to='documents/')
 
     def get_absolute_url(self):
         return reverse('cvdispdef', kwargs={'pk': self.pk})

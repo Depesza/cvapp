@@ -18,9 +18,16 @@
     height: 1169px;
     width: 827px;
   }
-  .foto{
+  .photo-div{
     margin-top:30px;
-    padding-right: 70px;
+    height: 220px;
+    padding-right: 50px;
+    display:flex;
+    align-items: center;
+  }
+  .photo{
+    max-height: 220px;
+    max-width: 240px;
   }
   h2{
     font-size: 180%;
@@ -59,8 +66,8 @@
       </div>
       </div>
     </div>
-    <div class="col-md-5">
-      <img src="{{ dane.photo.url }}" class="foto text-center img-responsive" style="height:240px;">
+    <div class="col-md-5 photo-div">
+      <img src="{{ dane.photo.url }}" class="photo center-block img-responsive">
     </div>
     </div>
 
@@ -70,10 +77,10 @@
       <hr style="height:2px;border-width:0;color:blue;background-color:#008ae6;margin-top:0px;"/>
       <div class="row">
         <div class="col-md-2">
-          <p style="background-color:powderblue;">2016-2017</p>
+          <b>2016-2017</b>
         </div>
         <div class="col-md-10">
-          <p>Cos tam - ktoś tam</p>
+          <p>Jakaś firma - jakieś stanowisko</p>
         </div>
       </div>
     </div>
@@ -84,10 +91,10 @@
       <hr style="height:2px;border-width:0;color:blue;background-color:#008ae6;margin-top:0px;"/>
       <div class="row">
         <div class="col-md-2">
-          <p style="background-color:powderblue;">2016-2017</p>
+          <b>2016-2017</b>
         </div>
         <div class="col-md-10">
-          <p>Coś jakoś - ktoś tam</p>
+          <p>Jakaś uczelnia - jakiś kierunek</p>
         </div>
       </div>
     </div>
@@ -97,11 +104,8 @@
       <h2>Umiejętności</h2>
       <hr style="height:2px;border-width:0;color:blue;background-color:#008ae6;margin-top:0px;"/>
       <div class="row">
-        <div class="col-md-2">
-          <p style="background-color:powderblue;">2016-2017</p>
-        </div>
         <div class="col-md-10">
-          <p>123 123 321 </p>
+          <p>Django, Python i inne</p>
         </div>
       </div>
     </div>
@@ -111,9 +115,6 @@
       <h2>Języki obce</h2>
       <hr style="height:2px;border-width:0;color:blue;background-color:#008ae6;margin-top:0px;"/>
       <div class="row">
-        <div class="col-md-2">
-          <p style="background-color:powderblue;">2016-2017</p>
-        </div>
         <div class="col-md-10">
           <p>Polski</p>
         </div>
@@ -125,9 +126,6 @@
       <h2>Zainteresowania</h2>
       <hr style="height:2px;border-width:0;color:blue;background-color:#008ae6;margin-top:0px;"/>
       <div class="row">
-        <div class="col-md-2">
-          <p style="background-color:powderblue;">2016-2017</p>
-        </div>
         <div class="col-md-10">
           <p>Granie w gre!</p>
         </div>
