@@ -1,5 +1,7 @@
 # cvapp
-Prosta aplikacja do tworzenia CV.
+Prosta aplikacja do tworzenia CV. 
+
+[wersja demonstracyjna](http://depesza.pythonanywhere.com)
 ### Stan aktualny:
 Możliwość stworzenia konta, zalogowania się i dodawania CV do listy. Aplikacja nie jest w pełni funkcjonalna.
 ### To do:
