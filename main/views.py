@@ -40,7 +40,7 @@ def cvcreate(request):
         form.instance.owner = request.user
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('cvdispdef')
     else:
         form = DaneForm()
     return render(request, 'main/cvcreate.html', {
