@@ -1,5 +1,6 @@
 {% extends 'main/base.html' %}
 {% block body %}
+<h2>Logowanie</h2><br>
 {% if messages %}
     {% for message in messages %}
     <div class="alert alert-info {{ message.tags }}" role="alert"><b>{{ message }}</b></div>
@@ -12,5 +13,5 @@
     {% include 'main/form-template.html' %}
     <input type="submit" value="Zaloguj">
 </form>
-
+<br><a href="{% url 'register' %}">Nie masz jeszcze konta?</a>
 {% endblock %}

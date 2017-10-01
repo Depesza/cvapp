@@ -5,11 +5,14 @@
     <div class="alert alert-info {{ message.tags }}" role="alert"><b>{{ message }}</b></div>
     {% endfor %}
 </ul>
+Dokładny opis funkcji aplikacji znjaduje się pod adresem <a target="blank" href="https://github.com/Depesza/cvapp">github.com/Depesza/cvapp</a>
+
 <ul>
-<li><a href="{% url 'cvcreate' %}">Dodaj CV</a></li>
-<li><a href="{% url 'cvdispdef' %}">Przeglądaj listę swoich CV</a></li>
-    {% if not request.user.username %}
-        <li><a href="{% url 'register' %}">Rejestracja</a></li>
-    {% endif %}
+    <br>
+    <li><a href="{% url 'cvcreate' %}">Dodaj CV</a></li>
+    <li><a href="{% url 'cvdispdef' %}">Przeglądaj listę swoich CV</a></li>
+        {% if not request.user.username %}
+            <li><a href="{% url 'register' %}">Rejestracja</a></li>
+        {% endif %}
 </ul>
 {% endblock %}
