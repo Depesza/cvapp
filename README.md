@@ -1,5 +1,5 @@
-#PL
 # cvapp
+## PL
 Prosta aplikacja do tworzenia CV. 
 
 [wersja demonstracyjna](http://depesza.pythonanywhere.com)
@@ -14,9 +14,7 @@ Możliwość stworzenia konta, zalogowania się i dodawania CV do listy. Aplikac
 ### Braki
 Nie ma możliwości dodania do CV wszystkich istotnych informacji. W widoku CV może występować nachodzenie na siebie elementów. Część frontendowa strony miała znaczenie drugorzędne, skupiono się na funkcjonalności. 
 
-
-#EN
-# cvapp
+## EN
 Simple app, which allows to create CV.
 
 [demo version] (http://depesza.pythonanywhere.com)
