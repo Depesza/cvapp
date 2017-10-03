@@ -5,3 +5,4 @@ __pycache__
 secret.py
 media/
 main/templates/main/cv.html
+main/templates/main/cv1.html
