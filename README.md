@@ -1,5 +1,5 @@
 # cvapp
-## PL
+## PL (english version below)
 Prosta aplikacja do tworzenia CV. 
 
 [wersja demonstracyjna](http://depesza.pythonanywhere.com)
